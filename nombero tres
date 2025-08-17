@@ -1,0 +1,4 @@
+tests/test_binary_tree.cpp
+
+template<typename T> class BinaryTreeStub : public BinaryTree<T> { public: void push(const T&) override {} void pop() override {} bool search(const T&) const override { return false; } };
+TEST(BinaryTreeInterface, PushPopAndSearchSignature) { BinaryTreeStub<int> t; t.push(1); EXPECT_EQ(t.search(1), false); EXPECT_NO_THROW(t.pop()); }
