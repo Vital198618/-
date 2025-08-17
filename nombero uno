@@ -1,0 +1,14 @@
+tests/test_queue.cpp
+
+#include "gtest/gtest.h"
+#include "queue.h"
+template<typename T> class QueueStub : public Queue<T> {
+public:
+void push(const T&) override {}
+T pop() override { return T{}; }
+};
+TEST(QueueInterface, PushPopSignature) {
+QueueStub<int> q;
+q.push(1);
+EXPECT_NO_THROW(q.pop());
+}
