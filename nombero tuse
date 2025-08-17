@@ -1,0 +1,5 @@
+tests/test_heap.cpp
+
+Similar:
+template<typename T> class HeapStub : public Heap<T> { public: void push(const T&) override {} T pop() override { return T{}; } };
+TEST(HeapInterface, PushPopSignature) { HeapStub<int> h; h.push(1); EXPECT_NO_THROW(h.pop()); }
